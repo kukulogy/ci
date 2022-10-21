@@ -30,11 +30,11 @@ jobs:
      
       - name: Set ssh key
         run:  |
-          echo "ssh-private-key=${{ secrets.JM_VM_UBUNTU2 }};test=JM" >> $GITHUB_ENV
+          echo "ssh-private-key=${{ secrets.JM_VM_UBUNTU2 }}" >> $GITHUB_ENV
           
-      - name: Bonjour
-        run:  |
-          echo "${{ env.JM_VM_UBUNTU2 }} ${{ env.test }}" 
+      #- name: Bonjour
+      #  run:  |
+      #    echo "${{ env.JM_VM_UBUNTU2 }} ${{ env.test }}" 
 
       # Runs a single command using the runners shell
       - name: Install npm
