@@ -24,18 +24,11 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
-      
-      - name: config use personal access token instead of ssh
-        run: git config --global url."https://${{ secrets.PAT }}@github.com/".insteadOf ssh://git@github.com/
      
-     # - uses: webfactory/ssh-agent@v0.6.0
-      #  with:
-     #     ssh-private-key: ${{ secrets.SSH_KEY }}
-          
-          
-      #- name: Bonjour
-      #  run:  |
-      #    echo "${{ env.JM_VM_UBUNTU2 }} ${{ env.test }}" 
+      - name: webfactory/ssh-agent
+        uses: webfactory/ssh-agent@v0.7.0
+        with:
+          ssh-private-key: ${{ secrets.SSH_KEY }}
 
       # Runs a single command using the runners shell
       - name: Install npm
