@@ -25,14 +25,23 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
       
-      - uses: webfactory/ssh-agent@v0.5.3
-        with: 
-          ssh-private-key: ${{ secrets.JM_VM_UBUNTU2 }}
+      - name: webfactory/ssh-agent@v0.5.3
+        env:
+          SSH_AUTH_SOCK: /tmp/ssh_agent.sock
+        run: |
+            mkdir -p /home/runner/.ssh
+            ssh-keyscan example.com >> /home/runner/.ssh/known_hosts
+            echo "${{ secrets.JM_VM_UBUNTU2 }}" > /home/runner/.ssh/github_actions
+            chmod 600 /home/runner/.ssh/github_actions
+            ssh-agent -a $SSH_AUTH_SOCK > /dev/null   
+            ssh-add /home/runner/.ssh/github_actions
       #- name: config use personal access token instead of ssh
       #  run: git config --global url."https://${{ secrets.PAT }}@github.com/".insteadOf ssh://git@github.com/
 
       # Runs a single command using the runners shell
       - name: Install npm
+        env:
+            SSH_AUTH_SOCK: /tmp/ssh_agent.sock
         run: npm install
 
       # Runs a single command using the runners shell
