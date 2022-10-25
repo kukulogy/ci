@@ -51,4 +51,4 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Run aloi
-        run: ./node_modules/aloi_cli/node_modules/.bin/aloi connector:list
+        run: DEBUG=* ./node_modules/aloi_cli/node_modules/.bin/aloi connector:list
