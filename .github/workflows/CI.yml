@@ -40,4 +40,4 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Run aloi
-        run: ./node_modules/aloi_cli/node_modules/.bin/aloi
+        run: ./node_modules/aloi_cli/node_modules/.bin/aloi connector:install decoy-jm . --build --force --packageName=decoy-jm
