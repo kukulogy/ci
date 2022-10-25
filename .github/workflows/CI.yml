@@ -48,7 +48,10 @@ jobs:
       # Runs a single command using the runners shell
       - name: Install workspace
         run: cd ./node_modules/aloi_cli/ && npm install -ws && cd ../../
-
+  
+      - name: Aloi connect
+        run: DEBUG=* ./node_modules/aloi_cli/node_modules/.bin/aloi aloi:connect
+  
       # Runs a single command using the runners shell
       - name: Run aloi
         run: DEBUG=* ./node_modules/aloi_cli/node_modules/.bin/aloi connector:list
