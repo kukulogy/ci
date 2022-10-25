@@ -4,11 +4,12 @@ name: CI
 
 # Controls when the workflow will run
 env:
-  ALOI_USERNAME: '${{ secrets.ALOI_USERNAME }}'
-  ALOI_PASSWORD: '${{ secrets.ALOI_PASSWORD }}'
-  ALOI_API: '${{ secrets.ALOI_API }}'
-  ALOI_REALM: '${{ secrets.ALOI_REALM }}'
-  ALOI_AUTH_URL: '${{ secrets.ALOI_AUTH_URL }}'
+  ALOI_USERNAME: ${{ secrets.ALOI_USERNAME }}
+  ALOI_PASSWORD: ${{ secrets.ALOI_PASSWORD }}
+  ALOI_API: ${{ secrets.ALOI_API }}
+  ALOI_REALM: ${{ secrets.ALOI_REALM }}
+  ALOI_AUTH_URL: ${{ ALOI_AUTH_URL }}
+  ALOI_ROLES: 'openid roles aloi_profile profile email'
   ECHO: 'TEST'
 on:
   # Triggers the workflow on push or pull request events but only for the "master" branch
