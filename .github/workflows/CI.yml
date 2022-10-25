@@ -34,19 +34,20 @@ jobs:
      
       - name: test env
         run: echo ${{ env.ECHO }}
-#       - name: webfactory/ssh-agent
-#         uses: webfactory/ssh-agent@v0.7.0
-#         with:
-#           ssh-private-key: ${{ secrets.SSH_KEY }}
 
-#       # Runs a single command using the runners shell
-#       - name: Install npm
-#         run: npm install
+      - name: webfactory/ssh-agent
+        uses: webfactory/ssh-agent@v0.7.0
+        with:
+          ssh-private-key: ${{ secrets.SSH_KEY }}
 
-#       # Runs a single command using the runners shell
-#       - name: Install workspace
-#         run: cd ./node_modules/aloi_cli/ && npm install -ws && cd ../../
+      # Runs a single command using the runners shell
+      - name: Install npm
+        run: npm install
 
-#       # Runs a single command using the runners shell
-#       - name: Run aloi
-#         run: ./node_modules/aloi_cli/node_modules/.bin/aloi connector:list
+      # Runs a single command using the runners shell
+      - name: Install workspace
+        run: cd ./node_modules/aloi_cli/ && npm install -ws && cd ../../
+
+      # Runs a single command using the runners shell
+      - name: Run aloi
+        run: ./node_modules/aloi_cli/node_modules/.bin/aloi connector:list
