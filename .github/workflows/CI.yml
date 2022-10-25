@@ -35,11 +35,11 @@ jobs:
         # uses: allenevans/set-env@b68e0a75c99b96b43963b54bc2be13e2f103ad87
         uses: allenevans/set-env@v2.0.0
         with:
-          ALOI_USERNAME: ${{ secrets.ALOI_USERNAME }}
-          ALOI_PASSWORD: ${{ secrets.ALOI_PASSWORD }}
-          ALOI_API: ${{ secrets.ALOI_API }}
-          ALOI_REALM: ${{ secrets.ALOI_REALM }}
-          ALOI_AUTH_URL: ${{ secrets.ALOI_AUTH_URL }}
+          ALOI_USERNAME: '${{ secrets.ALOI_USERNAME }}'
+          ALOI_PASSWORD: '${{ secrets.ALOI_PASSWORD }}'
+          ALOI_API: '${{ secrets.ALOI_API }}'
+          ALOI_REALM: '${{ secrets.ALOI_REALM }}'
+          ALOI_AUTH_URL: '${{ secrets.ALOI_AUTH_URL }}'
 
       # Runs a single command using the runners shell
       - name: Install npm
