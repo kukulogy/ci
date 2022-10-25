@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/kukulogy/gitaction_test#readme",
   "dependencies": {
-    "aloi_cli": "git+ssh://git@github.com:james-aloi/aloi-dev.git"
+    "aloi_cli": "git+ssh://git@github.com:james-aloi/decoy-connector.git"
   }
 }
